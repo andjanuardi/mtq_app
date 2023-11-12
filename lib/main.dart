@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/screens/daftararena.dart';
+import 'package:mtq_app/screens/galeri.dart';
 import 'package:mtq_app/screens/home.dart';
 import 'package:mtq_app/screens/jadwal.dart';
 import 'package:mtq_app/screens/lokasi.dart';
@@ -45,6 +46,8 @@ class MainApp extends StatelessWidget {
                 const LayoutApp(child: SafeArea(child: DaftarArena())),
             '/jadwal': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: Jadwal())),
+            '/galeri': (BuildContext context) =>
+                const LayoutApp(child: SafeArea(child: Galeri())),
             '/lokasiPemondokan': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: LokasiPemondokan())),
             '/lokasiArena': (BuildContext context) =>

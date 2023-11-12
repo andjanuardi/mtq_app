@@ -9,7 +9,7 @@ List<Map> bottomNavIcons = [
     'route': '/home'
   },
   {'icon': Icons.live_tv_sharp, 'color': Colors.white, 'route': '/home'},
-  {'icon': Icons.image, 'color': Colors.white, 'route': '/home'},
+  {'icon': Icons.image, 'color': Colors.white, 'route': '/galeri'},
 ];
 
 class BottomNavProvider extends ChangeNotifier {

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:mtq_app/widgets/bottomNav/config.dart';
+import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/widgets/lokasiPemondokan/peta/infoMarker.dart';
 
 class PetaLokasiPemondokan extends StatefulWidget {

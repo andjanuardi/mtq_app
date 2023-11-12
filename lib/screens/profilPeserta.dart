@@ -3,7 +3,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:mtq_app/widgets/bottomNav/config.dart';
+import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/widgets/profilPeserta/card.dart';
 import 'package:mtq_app/widgets/profilPeserta/cardProvinsi.dart';
 

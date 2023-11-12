@@ -12,8 +12,6 @@ List<Map> bottomNavIcons = [
   {'icon': Icons.image, 'color': Colors.white, 'route': '/home'},
 ];
 
-const String ApiUrl = 'http://localhost:8888/api/index.php/';
-
 class BottomNavProvider extends ChangeNotifier {
   int activeBottomNav;
   BottomNavProvider({

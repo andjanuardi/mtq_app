@@ -48,3 +48,5 @@ Future<Position> getLocation() async {
       desiredAccuracy: LocationAccuracy.high);
   return position;
 }
+
+const String ApiUrl = 'http://192.168.137.1:8888/api/index.php/';

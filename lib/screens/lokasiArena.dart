@@ -53,7 +53,7 @@ class LokasiArena extends StatelessWidget {
           ),
         ),
       ).animate().fade().slide(),
-      Expanded(child: PetaLokasiArena())
+      const Expanded(child: PetaLokasiArena())
     ]);
   }
 }

@@ -22,14 +22,14 @@ class NomorPenting extends StatelessWidget {
             image: DecorationImage(
               opacity: 0.7,
               fit: BoxFit.fitHeight,
-              alignment: AlignmentDirectional(1.00, 1.00),
+              alignment: const AlignmentDirectional(1.00, 1.00),
               image: Image.asset(
                 'assets/images/motif/motif_lapik2_top_right.png',
               ).image,
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(mainAxisSize: MainAxisSize.max, children: [
               IconButton(
                 onPressed: () {
@@ -41,7 +41,7 @@ class NomorPenting extends StatelessWidget {
                   color: Theme.of(context).primaryColor,
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Text(
                 'DAFTAR NOMOR PENTING',
                 style: TextStyle(
@@ -58,13 +58,13 @@ class NomorPenting extends StatelessWidget {
           child: SizedBox(
         width: double.infinity,
         child: ListView.separated(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           itemCount: dataNomorPenting.length,
           itemBuilder: (context, index) => btnCardNomorPenting(
               nama: dataNomorPenting[index]['nama'],
               keterangan: dataNomorPenting[index]['keterangan'],
               tlpn: dataNomorPenting[index]['tlpn']),
-          separatorBuilder: (context, index) => SizedBox(
+          separatorBuilder: (context, index) => const SizedBox(
             height: 20,
           ),
         ),

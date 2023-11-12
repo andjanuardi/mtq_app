@@ -37,7 +37,7 @@ class CardArena extends StatelessWidget {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           width: double.infinity,
           // padding: EdgeInsets.symmetric(horizontal: 20),
           height: 190,

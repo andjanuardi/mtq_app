@@ -5,7 +5,7 @@ List<Map<String, dynamic>> ListMenuInformasi = [
     'label': 'Profil Peserta',
     'icon': Icons.group,
     'imageUrl': 'assets/images/card/peserta.jpg',
-    'url': '/nomorPenting'
+    'url': '/profilPeserta'
   },
   {
     'label': 'Jadwal',

@@ -8,7 +8,7 @@ List<Map<String, dynamic>> listMenuLokasi = [
   {'label': 'Masjid', 'icon': 'mosque.png', 'url': '/lokasiMasjid'},
   {'label': 'Faskes', 'icon': 'hospital-buildings.png', 'url': '/lokasiFaskes'},
   {
-    'label': 'Kantor Bupati ',
+    'label': 'Kantor Bupati',
     'icon': 'buildings.png',
     'url': '/lokasiKantorBupati'
   },

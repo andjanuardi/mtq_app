@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 List<Map> bottomNavIcons = [
   {'icon': Icons.home, 'color': Colors.white, 'route': '/home'},
-  {'icon': Icons.calendar_month, 'color': Colors.white, 'route': '/home'},
+  {'icon': Icons.calendar_month, 'color': Colors.white, 'route': '/jadwal'},
   {
     'icon': Icons.qr_code_scanner_sharp,
     'color': Colors.white,
@@ -11,6 +11,8 @@ List<Map> bottomNavIcons = [
   {'icon': Icons.live_tv_sharp, 'color': Colors.white, 'route': '/home'},
   {'icon': Icons.image, 'color': Colors.white, 'route': '/home'},
 ];
+
+const String ApiUrl = 'http://localhost:8888/api/index.php/';
 
 class BottomNavProvider extends ChangeNotifier {
   int activeBottomNav;

@@ -36,7 +36,7 @@ class BtnMenuLokasi extends StatelessWidget {
                     padding: const EdgeInsets.all(15),
                     height: 75,
                     width: double.infinity,
-                    child: Image.asset('assets/images/icons/${_icon}'),
+                    child: Image.asset('assets/images/icons/$_icon'),
                   ),
                 ],
               ),

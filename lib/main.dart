@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/screens/daftararena.dart';
 import 'package:mtq_app/screens/home.dart';
+import 'package:mtq_app/screens/jadwal.dart';
 import 'package:mtq_app/screens/lokasi.dart';
 import 'package:mtq_app/screens/lokasiArena.dart';
 import 'package:mtq_app/screens/lokasiPemondokan.dart';
 import 'package:mtq_app/screens/nomorPenting.dart';
+import 'package:mtq_app/screens/profilPeserta.dart';
 import 'package:mtq_app/widgets/bottomNav/config.dart';
 import 'package:mtq_app/widgets/bottomNav/widget.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +23,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => BottomNavProvider())
+        ChangeNotifierProvider(create: (context) => BottomNavProvider()),
       ],
       child: MaterialApp(
           // onGenerateRoute: (settings) {
@@ -34,17 +36,21 @@ class MainApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           // theme: ThemeData(primaryColor: const Color(0xFF079992)),
           theme: ThemeData(
-              primaryColor: Color.fromARGB(255, 7, 111, 10),
+              primaryColor: const Color.fromARGB(255, 7, 111, 10),
               // primaryColor: Color.fromRGBO(105, 148, 218, 1),
-              highlightColor: Color.fromARGB(255, 102, 232, 128)),
+              highlightColor: const Color.fromARGB(255, 102, 232, 128)),
           routes: <String, WidgetBuilder>{
             '/home': (BuildContext context) => const LayoutApp(child: Home()),
             '/daftararena': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: DaftarArena())),
+            '/jadwal': (BuildContext context) =>
+                const LayoutApp(child: SafeArea(child: Jadwal())),
             '/lokasiPemondokan': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: LokasiPemondokan())),
             '/lokasiArena': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: LokasiArena())),
+            '/profilPeserta': (BuildContext context) =>
+                const LayoutApp(child: SafeArea(child: ProfilPeserta())),
             '/nomorPenting': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: NomorPenting())),
             '/lokasiMasjid': (BuildContext context) => const LayoutApp(

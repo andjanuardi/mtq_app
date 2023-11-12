@@ -22,7 +22,7 @@ class btnCardNomorPenting extends StatelessWidget {
         clipBehavior: Clip.hardEdge,
         color: Colors.white,
         elevation: 4,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: InkWell(
             onTap: () {
               makeCall(_tlpn);
@@ -39,11 +39,11 @@ class btnCardNomorPenting extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
                     width: double.infinity,
                     color: Theme.of(context).primaryColor.withAlpha(200),
                     child: Text(_keterangan,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.white)),
@@ -54,41 +54,34 @@ class btnCardNomorPenting extends StatelessWidget {
                       children: [
                         Container(
                           height: double.infinity,
-                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           color: Theme.of(context).primaryColor,
-                          child: Icon(
+                          child: const Icon(
                             Icons.phone,
                             size: 40,
                             color: Colors.white,
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 15, vertical: 10),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(_nama,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black)),
-                              SizedBox(
+                              const SizedBox(
                                 height: 5,
                               ),
                               Row(
                                 children: [
-                                  Icon(
-                                    Icons.phone,
-                                    size: 18,
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
                                   Text(
                                     _tlpn,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 13,
                                         fontWeight: FontWeight.normal),
                                   ),

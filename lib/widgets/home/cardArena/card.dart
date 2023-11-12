@@ -29,7 +29,7 @@ class btnCardLomba extends StatelessWidget {
         clipBehavior: Clip.hardEdge,
         color: Colors.white,
         elevation: 4,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: InkWell(
             onTap: () {},
             child: SizedBox(
@@ -38,7 +38,7 @@ class btnCardLomba extends StatelessWidget {
               child: Stack(
                 children: [
                   Container(
-                      alignment: Alignment(-1, -1),
+                      alignment: const Alignment(-1, -1),
                       child: Opacity(
                         opacity: 0.2,
                         child: Image.asset(
@@ -62,12 +62,12 @@ class btnCardLomba extends StatelessWidget {
                                     color: Theme.of(context).primaryColor),
                               ),
                               Text(_lokasi,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black54)),
                               Text(_alamat,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.black54)),
@@ -76,11 +76,11 @@ class btnCardLomba extends StatelessWidget {
                         ),
                       ),
                       Container(
-                          alignment: Alignment(1, 0),
+                          alignment: const Alignment(1, 0),
                           child: Container(
                             width: 100,
                             clipBehavior: Clip.hardEdge,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Image.asset(
                               _imageUrl,
                               height: double.infinity,
@@ -90,14 +90,14 @@ class btnCardLomba extends StatelessWidget {
                     ],
                   ),
                   Align(
-                    alignment: Alignment(0, 1),
+                    alignment: const Alignment(0, 1),
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                          const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                       width: double.infinity,
                       color: Theme.of(context).primaryColor.withAlpha(200),
                       child: Text(_cabang,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),

@@ -21,7 +21,7 @@ class CardInformasi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       clipBehavior: Clip.hardEdge,
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderRadius: const BorderRadius.all(Radius.circular(10)),
       elevation: 2,
       child: InkWell(
           splashColor: Colors.white.withAlpha(100),
@@ -40,18 +40,18 @@ class CardInformasi extends StatelessWidget {
                       ).image)),
               child: Column(
                 children: [
-                  Expanded(child: SizedBox()),
+                  const Expanded(child: SizedBox()),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     width: double.infinity,
                     color: Theme.of(context).primaryColor.withAlpha(200),
                     child: Row(
                       children: [
                         Icon(_icon, color: Colors.white),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           _text,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 15,
                               fontWeight: FontWeight.bold),

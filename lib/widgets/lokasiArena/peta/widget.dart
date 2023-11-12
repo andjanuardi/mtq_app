@@ -45,12 +45,12 @@ class PetaLokasiArena extends StatelessWidget {
                                           data: e,
                                         ));
                               },
-                              child: Container(
+                              child: SizedBox(
                                   height: double.infinity,
                                   width: double.infinity,
                                   child: Stack(
                                     children: [
-                                      Container(
+                                      SizedBox(
                                         height: 85,
                                         width: 85,
                                         child: Image.asset(
@@ -60,7 +60,7 @@ class PetaLokasiArena extends StatelessWidget {
                                         left: 15,
                                         top: 5,
                                         child: Container(
-                                          padding: EdgeInsets.all(5),
+                                          padding: const EdgeInsets.all(5),
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
                                                 fit: BoxFit.cover,
@@ -68,7 +68,7 @@ class PetaLokasiArena extends StatelessWidget {
                                                   '${e['image']}',
                                                 ).image),
                                             color: Colors.white,
-                                            borderRadius: BorderRadius.all(
+                                            borderRadius: const BorderRadius.all(
                                                 Radius.circular(100)),
                                           ),
                                           height: 35,

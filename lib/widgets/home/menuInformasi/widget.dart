@@ -11,12 +11,12 @@ class MenuInformasi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
           Container(
               alignment: Alignment.centerLeft,
-              padding: EdgeInsets.only(bottom: 20),
+              padding: const EdgeInsets.only(bottom: 20),
               child: Text(
                 'Informasi',
                 style: TextStyle(
@@ -24,7 +24,7 @@ class MenuInformasi extends StatelessWidget {
                     fontWeight: FontWeight.w900,
                     color: Theme.of(context).primaryColor),
               )),
-          Container(
+          SizedBox(
             width: double.infinity,
             child: Wrap(
                 spacing: 10,

@@ -74,11 +74,11 @@ class _SliderHomeState extends State<SliderHome> {
               Padding(
                 padding: isTablet
                     ? EdgeInsets.zero
-                    : EdgeInsets.symmetric(horizontal: 10),
+                    : const EdgeInsets.symmetric(horizontal: 10),
                 child: Container(
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                           color: Colors.black,
                           offset: Offset(0, 1),
@@ -87,20 +87,20 @@ class _SliderHomeState extends State<SliderHome> {
                     ],
                     color: Colors.white,
                     borderRadius: isTablet
-                        ? BorderRadius.only(
+                        ? const BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20))
-                        : BorderRadius.all(Radius.circular(20)),
+                        : const BorderRadius.all(Radius.circular(20)),
                     image: isTablet
                         ? DecorationImage(
                             opacity: 0.3,
-                            alignment: Alignment(-1, 1),
+                            alignment: const Alignment(-1, 1),
                             image: Image.asset(
                                     'assets/images/motif/motif_lapik_top_left.png')
                                 .image)
                         : DecorationImage(
                             // opacity: 0.3,
-                            alignment: Alignment(1, -1),
+                            alignment: const Alignment(1, -1),
                             image: Image.asset(
                                     'assets/images/motif/motif_lapik2_bottom_right.png')
                                 .image),
@@ -191,7 +191,7 @@ class _SliderHomeState extends State<SliderHome> {
                                             .map((e) => Container(
                                                   decoration: BoxDecoration(
                                                       borderRadius:
-                                                          BorderRadius.all(
+                                                          const BorderRadius.all(
                                                               Radius.circular(
                                                                   10)),
                                                       image: DecorationImage(

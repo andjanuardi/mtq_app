@@ -50,12 +50,12 @@ class _MenuLokasiState extends State<MenuLokasi> {
             ),
           ),
 
-          Container(
+          SizedBox(
             height: isTablet ? 150 : 280,
             width: double.infinity,
 
             child: GridView.count(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 scrollDirection: Axis.horizontal,
                 crossAxisCount: isTablet ? 1 : 2,
                 mainAxisSpacing: 10,

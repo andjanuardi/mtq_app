@@ -1,3 +1,4 @@
+import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const double TabletWidth = 480;
@@ -16,7 +17,7 @@ void openYoutube(String id) async {
 }
 
 void openDirection(double lat, double long) async {
-  final String coor = '${lat},${long}';
+  final String coor = '$lat,$long';
   final Uri url = Uri(
       scheme: 'https',
       host: 'www.google.co.id',
@@ -40,4 +41,10 @@ void makeCall(String tel) async {
   } else {
     print('paik');
   }
+}
+
+Future<Position> getLocation() async {
+  Position position = await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high);
+  return position;
 }

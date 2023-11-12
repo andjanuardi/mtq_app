@@ -20,18 +20,18 @@ class InfoMarkerArena extends StatelessWidget {
                   'assets/images/motif/motif_lapik_bottom_right.png',
                 ).image),
             color: Colors.white,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(15))),
         height: 400,
         width: double.infinity,
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 25,
               width: double.infinity,
               child: Center(
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.black26,
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   height: 10,
@@ -41,7 +41,7 @@ class InfoMarkerArena extends StatelessWidget {
             ),
             Container(
                 width: double.infinity,
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -52,30 +52,30 @@ class InfoMarkerArena extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3,
                     ),
                     Text(
                       '${_data['lokasi']}',
                       style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3,
                     ),
                     Text(
                       '${_data['alamat']}',
                       style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                          const TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3,
                     ),
                     Text(
                       textAlign: TextAlign.center,
                       '${_data['cabang']}',
                       style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                          const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                   ],
                 )),
@@ -91,7 +91,7 @@ class InfoMarkerArena extends StatelessWidget {
                           Icons.open_in_new,
                           color: Theme.of(context).primaryColor,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -114,7 +114,7 @@ class InfoMarkerArena extends StatelessWidget {
                           Icons.directions,
                           color: Theme.of(context).primaryColor,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -151,7 +151,7 @@ class InfoMarkerArena extends StatelessWidget {
                         BoxShadow(
                             color: Colors.black.withAlpha(100), blurRadius: 5)
                       ],
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                       image: DecorationImage(
                           fit: BoxFit.cover,
                           image: Image.asset('${_data['image']}').image)),

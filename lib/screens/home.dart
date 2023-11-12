@@ -29,9 +29,7 @@ class _HomeState extends State<Home> {
 }
 
 class _homePage extends StatelessWidget {
-  const _homePage({
-    super.key,
-  });
+  const _homePage();
 
   @override
   Widget build(BuildContext context) {

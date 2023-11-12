@@ -22,6 +22,9 @@ dependencies:
   provider: ^6.0.5
   url_launcher: ^6.2.1
   url_launcher_android: ^6.2.0
+  geolocator: ^10.1.0
+  http: ^1.1.0
+  dio: ^5.3.3
 
 dev_dependencies:
   flutter_test:
@@ -41,3 +44,4 @@ flutter:
     - assets/images/pemondokan/
     - assets/images/arena/
     - assets/images/lokasi/
+    - assets/images/profil/

@@ -53,7 +53,7 @@ class LokasiPemondokan extends StatelessWidget {
           ),
         ),
       ).animate().fade().slide(),
-      Expanded(child: PetaLokasiPemondokan())
+      const Expanded(child: PetaLokasiPemondokan())
     ]);
   }
 }

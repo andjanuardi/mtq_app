@@ -1,8 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:mtq_app/models/dataLokasiPemondokan.dart';
+import 'package:mtq_app/widgets/bottomNav/config.dart';
 import 'package:mtq_app/widgets/lokasiPemondokan/peta/infoMarker.dart';
 
 class PetaLokasiPemondokan extends StatefulWidget {
@@ -14,7 +15,47 @@ class PetaLokasiPemondokan extends StatefulWidget {
 
 class _PetaLokasiPemondokanState extends State<PetaLokasiPemondokan> {
   int selectedKab = 0;
-  List<Map> selectedData = listLokasiPemondokan;
+  List<Map<String, dynamic>> selectedData = [];
+
+  Dio dio = Dio();
+  List<Map<String, dynamic>> listKabupaten = [];
+  List<Map<String, dynamic>> listLokasiPemondokan = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    try {
+      Response response = await dio.get('$ApiUrl/kabupaten');
+      if (response.statusCode == 200) {
+        setState(() {
+          listKabupaten = List<Map<String, dynamic>>.from(response.data);
+        });
+      } else {
+        // Handle errors
+        print('Failed to load data');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+    try {
+      Response response = await dio.get('$ApiUrl/lokasipemondokan');
+      if (response.statusCode == 200) {
+        setState(() {
+          selectedData = List<Map<String, dynamic>>.from(response.data);
+          listLokasiPemondokan = List<Map<String, dynamic>>.from(response.data);
+        });
+      } else {
+        // Handle errors
+        print('Failed to load data');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +78,12 @@ class _PetaLokasiPemondokanState extends State<PetaLokasiPemondokan> {
                 ),
                 MarkerLayer(
                     markers: selectedData
-                        .skipWhile((e) => e['kabupaten'] == 'Semua Kabupaten')
                         .map((e) => Marker(
                             alignment: Alignment.topCenter,
                             height: 65,
                             width: 65,
-                            point: LatLng(e['lat'], e['long']),
+                            point: LatLng(double.parse(e['lat']),
+                                double.parse(e['long'])),
                             child: InkWell(
                               onTap: () {
                                 showBottomSheet(
@@ -53,12 +94,12 @@ class _PetaLokasiPemondokanState extends State<PetaLokasiPemondokan> {
                                           data: e,
                                         ));
                               },
-                              child: Container(
+                              child: SizedBox(
                                   height: double.infinity,
                                   width: double.infinity,
                                   child: Stack(
                                     children: [
-                                      Container(
+                                      SizedBox(
                                         height: 85,
                                         width: 85,
                                         child: Image.asset(
@@ -68,8 +109,8 @@ class _PetaLokasiPemondokanState extends State<PetaLokasiPemondokan> {
                                         left: 15,
                                         top: 5,
                                         child: Container(
-                                          padding: EdgeInsets.all(5),
-                                          decoration: BoxDecoration(
+                                          padding: const EdgeInsets.all(5),
+                                          decoration: const BoxDecoration(
                                             color: Colors.white,
                                             borderRadius: BorderRadius.all(
                                                 Radius.circular(100)),
@@ -77,7 +118,7 @@ class _PetaLokasiPemondokanState extends State<PetaLokasiPemondokan> {
                                           height: 35,
                                           width: 35,
                                           child: Image.asset(
-                                            'assets/images/logo/kabupaten/${e['icon']}',
+                                            'assets/images/logo/kabupaten/${e['logo']}',
                                           ),
                                         ),
                                       ),
@@ -102,35 +143,51 @@ class _PetaLokasiPemondokanState extends State<PetaLokasiPemondokan> {
             ),
             child: DropdownButton(
               value: selectedKab,
-              items: listLokasiPemondokan
-                  .asMap()
-                  .entries
-                  .map((e) => DropdownMenuItem(
-                      value: e.key,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: 30,
-                            height: 30,
-                            child: Image.asset(
-                                'assets/images/logo/kabupaten/${e.value['icon']}'),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(e.value['kabupaten']),
-                        ],
-                      )))
-                  .toList(),
+              items: [
+                DropdownMenuItem(
+                    value: 0,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: 30,
+                          height: 30,
+                          child: Image.asset(
+                              'assets/images/logo/kabupaten/logo.png'),
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text('Semua Kabupaten'),
+                      ],
+                    )),
+                ...listKabupaten
+                    .asMap()
+                    .entries
+                    .map((e) => DropdownMenuItem(
+                        value: int.parse(e.value['id']),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: Image.asset(
+                                  'assets/images/logo/kabupaten/${e.value['logo']}'),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(e.value['nama']),
+                          ],
+                        )))
+                    .toList()
+              ],
               onChanged: (value) {
                 setState(() {
                   selectedKab = value!;
                   selectedData = value == 0
                       ? listLokasiPemondokan
                       : listLokasiPemondokan
-                          .where((e) =>
-                              e['kabupaten'] ==
-                              listLokasiPemondokan[value]['kabupaten'])
+                          .where((e) => int.parse(e['id_kabupaten']) == value)
                           .toList();
                 });
               },

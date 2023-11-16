@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mtq_app/config/value.dart';
 
@@ -48,10 +49,11 @@ class InfoMarkerPemondokan extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Image.asset(
-                          'assets/images/logo/kabupaten/${_data['logo']}',
-                          height: 80,
-                        ),
+                        Image(
+                            height: 80,
+                            image: CachedNetworkImageProvider(
+                              '$ApiUrl/assets/images/logo/kabupaten/${_data['logo']}',
+                            )),
                         const SizedBox(
                           width: 15,
                         ),
@@ -175,12 +177,14 @@ class InfoMarkerPemondokan extends StatelessWidget {
                       image: DecorationImage(
                           fit: BoxFit.cover,
                           image: _data['gambar'] == null
-                              ? Image.asset(
-                                      'assets/images/pemondokan/default.png')
+                              ? Image.asset('assets/images/card/default.jpg')
                                   .image
-                              : Image.asset(
-                                      'assets/images/pemondokan/${_data['gambar']}')
-                                  .image)),
+                              : CachedNetworkImageProvider(
+                                  '$ApiUrl/assets/images/pemondokan/${_data['gambar']}'))),
+                  // child: ImageLoader(
+                  //     url: _data['gambar'] == null
+                  //         ? '$ApiUrl/assets/images/slider/${_data['gambar']}.jpg'
+                  //         : '$ApiUrl/assets/images/pemondokan/${_data['gambar']}'),
                 ),
               ),
             ),

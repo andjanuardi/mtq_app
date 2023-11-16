@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/main.dart';
 import 'package:mtq_app/screens/profilPeserta.dart';
 
@@ -66,12 +68,18 @@ class btnCardProvinsi extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                            height: double.infinity,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10),
-                            color: Theme.of(context).primaryColor.withAlpha(50),
-                            child: Image.asset(
-                                'assets/images/logo/kabupaten/$_logo')),
+                          height: double.infinity,
+                          width: 100,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                              color:
+                                  Theme.of(context).primaryColor.withAlpha(50),
+                              image: DecorationImage(
+                                  scale: 1.2,
+                                  image: CachedNetworkImageProvider(
+                                      '$ApiUrl/assets/images/logo/kabupaten/$_logo'))),
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 15, vertical: 10),

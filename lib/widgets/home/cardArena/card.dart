@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mtq_app/widgets/home/imageLoader.dart';
 
 class btnCardLomba extends StatelessWidget {
   const btnCardLomba({
@@ -81,8 +82,8 @@ class btnCardLomba extends StatelessWidget {
                             width: 100,
                             clipBehavior: Clip.hardEdge,
                             decoration: const BoxDecoration(),
-                            child: Image.asset(
-                              _imageUrl,
+                            child: ImageLoader(
+                              url: _imageUrl,
                               height: double.infinity,
                               fit: BoxFit.cover,
                             ),
@@ -92,8 +93,8 @@ class btnCardLomba extends StatelessWidget {
                   Align(
                     alignment: const Alignment(0, 1),
                     child: Container(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15, vertical: 10),
                       width: double.infinity,
                       color: Theme.of(context).primaryColor.withAlpha(200),
                       child: Text(_cabang,

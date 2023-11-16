@@ -17,7 +17,14 @@ class BottomNav extends StatelessWidget {
         Provider.of<BottomNavProvider>(context, listen: false)
             .changeActiveBottomNav(index);
         Future.delayed(const Duration(milliseconds: 350), () {
-          Navigator.pushNamed(context, bottomNavIcons[index]['route']);
+          if (bottomNavIcons[index]['route'] == '/home') {
+            Navigator.pushReplacementNamed(
+              context,
+              bottomNavIcons[index]['route'],
+            );
+          } else {
+            Navigator.pushNamed(context, bottomNavIcons[index]['route']);
+          }
         });
       },
       items: bottomNavIcons

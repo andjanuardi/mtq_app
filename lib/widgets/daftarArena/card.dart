@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mtq_app/config/value.dart';
+import 'package:mtq_app/widgets/home/imageLoader.dart';
 
 class btnCardArena extends StatelessWidget {
   const btnCardArena({
@@ -38,7 +39,10 @@ class btnCardArena extends StatelessWidget {
         elevation: 4,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: InkWell(
-            onTap: () {},
+            onTap: () {
+              openDirection(_lat, _long);
+            },
+            highlightColor: Colors.white,
             child: SizedBox(
               width: double.infinity,
               height: double.infinity,
@@ -78,23 +82,8 @@ class btnCardArena extends StatelessWidget {
                                       fontSize: 11,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.black54)),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 10),
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.pin_drop,
-                                      color: Theme.of(context).primaryColor,
-                                      size: 15,
-                                    ),
-                                    Text("$_lat, $_long",
-                                        style: const TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.black54)),
-                                  ],
-                                ),
+                              SizedBox(
+                                height: 10,
                               ),
                               Material(
                                 child: InkWell(
@@ -142,8 +131,8 @@ class btnCardArena extends StatelessWidget {
                             width: 100,
                             clipBehavior: Clip.hardEdge,
                             decoration: const BoxDecoration(),
-                            child: Image.asset(
-                              _imageUrl,
+                            child: ImageLoader(
+                              url: '${ApiUrl}/assets/images/arena/${_imageUrl}',
                               height: double.infinity,
                               fit: BoxFit.cover,
                             ),

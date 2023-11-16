@@ -1,12 +1,50 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/models/dataArena.dart';
 import 'package:mtq_app/widgets/daftarArena/card.dart';
 
-class CardArena extends StatelessWidget {
+class CardArena extends StatefulWidget {
   const CardArena({
     super.key,
   });
+
+  @override
+  State<CardArena> createState() => _CardArenaState();
+}
+
+class _CardArenaState extends State<CardArena> {
+  Dio dio = Dio();
+  List<Map<String, dynamic>> listArena = [];
+
+  Future<void> fetchData() async {
+    try {
+      Response response = await dio.get('$ApiUrl/lokasiarena');
+      if (response.statusCode == 200) {
+        setState(() {
+          listArena = List<Map<String, dynamic>>.from(response.data);
+        });
+      } else {
+        // Handle errors
+        print('Failed to load data');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,15 +90,15 @@ class CardArena extends StatelessWidget {
                   spacing: 20,
                   children: [
                     const SizedBox(),
-                    ...dataArena
+                    ...listArena
                         .map((e) => btnCardArena(
-                            arena: e['arena'],
+                            arena: e['nama'],
                             lokasi: e['lokasi'],
                             alamat: e['alamat'],
                             cabang: e['cabang'],
-                            lat: e['lat'],
-                            long: e['long'],
-                            imageUrl: e['image']))
+                            lat: double.parse(e['lat']),
+                            long: double.parse(e['long']),
+                            imageUrl: e['gambar']))
                         .toList(),
                     const SizedBox(),
                   ]

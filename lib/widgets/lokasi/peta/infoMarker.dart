@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mtq_app/config/value.dart';
 
@@ -41,7 +42,8 @@ class InfoMarker extends StatelessWidget {
             ),
             Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -57,8 +59,8 @@ class InfoMarker extends StatelessWidget {
                     ),
                     Text(
                       '${_data['alamat']}',
-                      style:
-                          const TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                      style: const TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.w300),
                     ),
                   ],
                 )),
@@ -68,7 +70,8 @@ class InfoMarker extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      openDirection(_data['lat'], _data['long']);
+                      openDirection(double.parse(_data['lat']),
+                          double.parse(_data['long']));
                     },
                     child: Row(
                       children: [
@@ -109,6 +112,7 @@ class InfoMarker extends StatelessWidget {
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 child: Container(
                   decoration: BoxDecoration(
+                      color: Colors.white,
                       boxShadow: [
                         BoxShadow(
                             color: Colors.black.withAlpha(100), blurRadius: 5)
@@ -116,7 +120,11 @@ class InfoMarker extends StatelessWidget {
                       borderRadius: const BorderRadius.all(Radius.circular(10)),
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: Image.asset('${_data['image']}').image)),
+                          image: _data['image'] == null
+                              ? Image.asset('assets/images/card/default.jpg')
+                                  .image
+                              : CachedNetworkImageProvider(
+                                  '$ApiUrl/assets/images/lokasi/${_data['image']}'))),
                 ),
               ),
             ),

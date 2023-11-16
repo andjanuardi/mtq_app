@@ -1,4 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:mtq_app/config/value.dart';
+import 'package:mtq_app/widgets/home/imageLoader.dart';
 
 class btnCardProfilPeserta extends StatelessWidget {
   const btnCardProfilPeserta(
@@ -60,15 +63,19 @@ class btnCardProfilPeserta extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                        decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor.withAlpha(50),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.black.withAlpha(100),
-                                  blurRadius: 10)
-                            ]),
-                        height: double.infinity,
-                        child: Image.asset('assets/images/profil/$_image')),
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: CachedNetworkImageProvider(
+                                  '$ApiUrl/assets/images/profil/$_image')),
+                          color: Theme.of(context).primaryColor.withAlpha(50),
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.black.withAlpha(100),
+                                blurRadius: 10)
+                          ]),
+                      width: 100,
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 15, vertical: 10),

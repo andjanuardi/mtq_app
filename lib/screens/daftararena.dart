@@ -1,12 +1,50 @@
 // import 'dart:html';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/models/dataArena.dart';
 import 'package:mtq_app/widgets/daftarArena/card.dart';
 
-class DaftarArena extends StatelessWidget {
+class DaftarArena extends StatefulWidget {
   const DaftarArena({super.key});
+
+  @override
+  State<DaftarArena> createState() => _DaftarArenaState();
+}
+
+class _DaftarArenaState extends State<DaftarArena> {
+  Dio dio = Dio();
+  List<Map<String, dynamic>> listArena = [];
+
+  Future<void> fetchData() async {
+    try {
+      Response response = await dio.get('$ApiUrl/lokasiarena');
+      if (response.statusCode == 200) {
+        setState(() {
+          listArena = List<Map<String, dynamic>>.from(response.data);
+        });
+      } else {
+        // Handle errors
+        print('Failed to load data');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,15 +97,15 @@ class DaftarArena extends StatelessWidget {
         width: double.infinity,
         child: ListView.separated(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          itemCount: dataArena.length,
+          itemCount: listArena.length,
           itemBuilder: (context, index) => btnCardArena(
-            arena: dataArena[index]['arena'],
-            lokasi: dataArena[index]['lokasi'],
-            alamat: dataArena[index]['alamat'],
-            cabang: dataArena[index]['cabang'],
-            imageUrl: dataArena[index]['image'],
-            lat: dataArena[index]['lat'],
-            long: dataArena[index]['long'],
+            arena: listArena[index]['nama'],
+            lokasi: listArena[index]['lokasi'],
+            alamat: listArena[index]['alamat'],
+            cabang: listArena[index]['cabang'],
+            imageUrl: listArena[index]['gambar'],
+            lat: double.parse(listArena[index]['lat']),
+            long: double.parse(listArena[index]['long']),
           ),
           separatorBuilder: (context, index) => const SizedBox(
             height: 20,

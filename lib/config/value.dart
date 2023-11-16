@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -9,6 +11,15 @@ void openYoutube(String id) async {
       host: 'www.youtube.com',
       path: '/watch/',
       queryParameters: {'v': id});
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    print('paik');
+  }
+}
+
+void openLink(String link) async {
+  final Uri url = Uri.parse(link);
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -49,4 +60,161 @@ Future<Position> getLocation() async {
   return position;
 }
 
-const String ApiUrl = 'http://192.168.137.1:8888/api/index.php/';
+const String ApiUrl = 'https://andj.tech/api';
+
+const bulan = [
+  'Januari',
+  'Februari',
+  'Maret',
+  'April',
+  'Mei',
+  'Juni',
+  'Juli',
+  'Agustus',
+  'September',
+  'Oktober',
+  'November',
+  'Desember',
+];
+
+const hari = [
+  'Senin',
+  'Selasa',
+  'Rabu',
+  'Kamis',
+  'Jum\'at',
+  'Sabtu',
+  'Minggu',
+];
+
+String tanggalStr(value) {
+  var date = DateTime.parse(value);
+  return ("${hari[date.weekday - 1]}, ${date.day} ${bulan[date.month - 1]} ${date.year}");
+}
+
+List<Map<String, dynamic>> groupBy(
+    List<Map<String, dynamic>> data, String key) {
+  Map<String, List<Map<String, dynamic>>> groupedData = {};
+  List<Map<String, dynamic>> returnData = [];
+
+  for (var item in data) {
+    String val = item[key].toString();
+    if (!groupedData.containsKey(val)) {
+      groupedData[val] = [item];
+    }
+  }
+
+  groupedData.forEach((key, value) {
+    returnData.addAll(value);
+  });
+  return returnData;
+}
+
+Future<void> showPopup(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        contentPadding: EdgeInsets.all(1),
+        // title: const Text('Basic dialog title'),
+        content: Image(
+          // height: 100,
+          // width: 100,
+          image: CachedNetworkImageProvider(
+              '${ApiUrl}/assets/images/ads/gogreen.jpg'),
+        ),
+        actionsPadding: EdgeInsets.all(2),
+        actions: [
+          Center(
+            child: TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Lanjukan'),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/home');
+              },
+            ),
+          ),
+        ],
+      );
+      // actions: <Widget>[
+      //   TextButton(
+      //     style: TextButton.styleFrom(
+      //       textStyle: Theme.of(context).textTheme.labelLarge,
+      //     ),
+      //     child: const Text('Disable'),
+      //     onPressed: () {
+      //       Navigator.of(context).pop();
+      //     },
+      //   ),
+      //   TextButton(
+      //     style: TextButton.styleFrom(
+      //       textStyle: Theme.of(context).textTheme.labelLarge,
+      //     ),
+      //     child: const Text('Enable'),
+      //     onPressed: () {
+      //       Navigator.of(context).pop();
+      //     },
+      //   ),
+      // ],
+    },
+  );
+}
+
+Future<void> belumBayar(BuildContext context) {
+  return showDialog<void>(
+    barrierDismissible: false,
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        // title: const Text('Basic dialog title'),
+        content: Text(
+            'Mohon Maaf Aplikasi Ini tidak dapat digunakan di karenakan panitia pelaksana belum menyelesaikan pembayaran'),
+        actionsPadding: EdgeInsets.all(2),
+      );
+    },
+  );
+}
+
+Future<void> tidakadakoneksi(BuildContext context) {
+  return showDialog<void>(
+    barrierDismissible: false,
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        // title: const Text('Basic dialog title'),
+        content: Text(
+            'Tidak dapat terhubung ke server silahkan cek koneksi internet'),
+        actionsPadding: EdgeInsets.all(2),
+      );
+    },
+  );
+}
+
+Future<void> versisalah(BuildContext context) {
+  return showDialog<void>(
+    barrierDismissible: false,
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        // title: const Text('Basic dialog title'),
+        content: Text('Aplikasi sudah kadarluarsa silahkan update'),
+        actionsPadding: EdgeInsets.all(2),
+      );
+    },
+  );
+}
+
+Future<void> showmodal(BuildContext context, String text) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        // title: const Text('Basic dialog title'),
+        content: Text(text),
+        actionsPadding: EdgeInsets.all(2),
+      );
+    },
+  );
+}

@@ -1,12 +1,50 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mtq_app/models/dataNomorPenting.dart';
 import 'package:mtq_app/widgets/nomorPenting/card.dart';
+import 'package:mtq_app/config/value.dart';
 
-class NomorPenting extends StatelessWidget {
+class NomorPenting extends StatefulWidget {
   const NomorPenting({super.key});
+
+  @override
+  State<NomorPenting> createState() => _NomorPentingState();
+}
+
+class _NomorPentingState extends State<NomorPenting> {
+  Dio dio = Dio();
+  List<Map<String, dynamic>> listNomor = [];
+
+  Future<void> fetchData() async {
+    try {
+      Response response = await dio.get('$ApiUrl/telp');
+      if (response.statusCode == 200) {
+        setState(() {
+          listNomor = List<Map<String, dynamic>>.from(response.data);
+        });
+      } else {
+        // Handle errors
+        print('Failed to load data');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +97,11 @@ class NomorPenting extends StatelessWidget {
         width: double.infinity,
         child: ListView.separated(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          itemCount: dataNomorPenting.length,
+          itemCount: listNomor.length,
           itemBuilder: (context, index) => btnCardNomorPenting(
-              nama: dataNomorPenting[index]['nama'],
-              keterangan: dataNomorPenting[index]['keterangan'],
-              tlpn: dataNomorPenting[index]['tlpn']),
+              nama: listNomor[index]['nama'],
+              keterangan: listNomor[index]['keterangan'],
+              tlpn: listNomor[index]['telp']),
           separatorBuilder: (context, index) => const SizedBox(
             height: 20,
           ),

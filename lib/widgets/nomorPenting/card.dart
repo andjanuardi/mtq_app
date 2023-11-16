@@ -39,7 +39,8 @@ class btnCardNomorPenting extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 15),
                     width: double.infinity,
                     color: Theme.of(context).primaryColor.withAlpha(200),
                     child: Text(_keterangan,

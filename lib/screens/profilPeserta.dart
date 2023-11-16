@@ -90,6 +90,7 @@ class _ProfilPesertaState extends State<ProfilPeserta> {
           child: SizedBox(
         width: double.infinity,
         child: ListView.separated(
+          padding: EdgeInsets.all(10),
           itemCount: kabupatenData.length,
           itemBuilder: (context, index) {
             return btnCardProvinsi(
@@ -202,26 +203,39 @@ class _DaftarPesertaState extends State<DaftarPeserta> {
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
-      Expanded(
-          child: SizedBox(
-        width: double.infinity,
-        child: ListView.separated(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          itemCount: selectedPeserta.length,
-          itemBuilder: (context, index) => btnCardProfilPeserta(
-            noPeserta: selectedPeserta[index]['no'],
-            nama: selectedPeserta[index]['nama'],
-            cabang: selectedPeserta[index]['cabang'],
-            golongan: selectedPeserta[index]['golongan'],
-            tglLahir: selectedPeserta[index]['lahir'],
-            kelamin: selectedPeserta[index]['kelamin'],
-            image: selectedPeserta[index]['foto'],
-          ),
-          separatorBuilder: (context, index) => const SizedBox(
-            height: 20,
+      if (selectedPeserta.length <= 0)
+        Expanded(
+          child: Center(
+            child: Text(
+              'Belum ada data',
+              style: TextStyle(
+                  fontSize: 20,
+                  fontStyle: FontStyle.italic,
+                  color: Theme.of(context).primaryColor),
+            ),
           ),
         ),
-      ))
+      if (selectedPeserta.length > 0)
+        Expanded(
+            child: SizedBox(
+          width: double.infinity,
+          child: ListView.separated(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            itemCount: selectedPeserta.length,
+            itemBuilder: (context, index) => btnCardProfilPeserta(
+              noPeserta: selectedPeserta[index]['no'],
+              nama: selectedPeserta[index]['nama'],
+              cabang: selectedPeserta[index]['cabang'],
+              golongan: selectedPeserta[index]['golongan'],
+              tglLahir: selectedPeserta[index]['lahir'],
+              kelamin: selectedPeserta[index]['kelamin'],
+              image: selectedPeserta[index]['foto'],
+            ),
+            separatorBuilder: (context, index) => const SizedBox(
+              height: 20,
+            ),
+          ),
+        ))
     ]);
   }
 }

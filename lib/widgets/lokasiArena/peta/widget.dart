@@ -1,12 +1,44 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:mtq_app/models/dataArena.dart';
+import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/widgets/lokasiArena/peta/infoMarker.dart';
 
-class PetaLokasiArena extends StatelessWidget {
+class PetaLokasiArena extends StatefulWidget {
   const PetaLokasiArena({super.key});
+
+  @override
+  State<PetaLokasiArena> createState() => _PetaLokasiArenaState();
+}
+
+class _PetaLokasiArenaState extends State<PetaLokasiArena> {
+  Dio dio = Dio();
+  List<Map<String, dynamic>> listDataArena = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    try {
+      Response response = await dio.get('$ApiUrl/lokasiarena');
+      if (response.statusCode == 200) {
+        setState(() {
+          listDataArena = List<Map<String, dynamic>>.from(response.data);
+        });
+      } else {
+        // Handle errors
+        print('Failed to load data');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +60,13 @@ class PetaLokasiArena extends StatelessWidget {
                       'http://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
                 ),
                 MarkerLayer(
-                    markers: dataArena
+                    markers: listDataArena
                         .map((e) => Marker(
                             alignment: Alignment.topCenter,
                             height: 65,
                             width: 65,
-                            point: LatLng(e['lat'], e['long']),
+                            point: LatLng(double.parse(e['lat']),
+                                double.parse(e['long'])),
                             child: InkWell(
                               onTap: () {
                                 showBottomSheet(
@@ -64,12 +97,17 @@ class PetaLokasiArena extends StatelessWidget {
                                           decoration: BoxDecoration(
                                             image: DecorationImage(
                                                 fit: BoxFit.cover,
-                                                image: Image.asset(
-                                                  '${e['image']}',
-                                                ).image),
+                                                image: e['gambar'] == null
+                                                    ? Image.asset(
+                                                            'assets/images/logo/logo.png')
+                                                        .image
+                                                    : CachedNetworkImageProvider(
+                                                        '${ApiUrl}/assets/images/arena/${e['gambar']}',
+                                                      )),
                                             color: Colors.white,
-                                            borderRadius: const BorderRadius.all(
-                                                Radius.circular(100)),
+                                            borderRadius:
+                                                const BorderRadius.all(
+                                                    Radius.circular(100)),
                                           ),
                                           height: 35,
                                           width: 35,

@@ -1,10 +1,12 @@
+import 'package:mtq_app/config/value.dart';
+
 List<Map<String, dynamic>> dataLokasi = [
   //Masjid
   {
     'jenis': 'Masjid',
     'nama': 'Masjid Agung Tengku Khalilullah',
     'alamat': 'Desa Air Dingin',
-    'image': 'assets/images/lokasi/1.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/1.jpg',
     'lat': 2.458361,
     'long': 96.377301
   },
@@ -12,7 +14,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Masjid',
     'nama': 'Masjid Agung Baiturahman',
     'alamat': 'Desa Sinabang',
-    'image': 'assets/images/lokasi/2.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/2.jpg',
     'lat': 2.479337,
     'long': 96.380158
   },
@@ -21,7 +23,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Kantor Bupati',
     'nama': 'Kantor Bupati Kabupaten Simeulue',
     'alamat': 'Desa Air Dingin',
-    'image': 'assets/images/lokasi/3.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/3.jpg',
     'lat': 2.461255,
     'long': 96.379985
   },
@@ -30,7 +32,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'ATM',
     'nama': 'ATM BANK ACEH SYARIAH',
     'alamat': 'Desa Air Dingin',
-    'image': 'assets/images/lokasi/4.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/4.jpg',
     'lat': 2.461775,
     'long': 96.379650
   },
@@ -38,7 +40,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'ATM',
     'nama': 'Bank Syariah Indonesia KC Simeulue',
     'alamat': 'Desa Ameria Bahagia',
-    'image': 'assets/images/lokasi/5.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/5.jpg',
     'lat': 2.465602,
     'long': 96.380423
   },
@@ -47,7 +49,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Penginapan',
     'nama': 'Graha D\'Fit.Lm',
     'alamat': 'Desa Air Dingin',
-    'image': 'assets/images/lokasi/6.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/6.jpg',
     'lat': 2.455036,
     'long': 96.387314
   },
@@ -55,7 +57,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Penginapan',
     'nama': 'Losmen Simeulue Kota Sinabang',
     'alamat': 'Desa Suka Karya',
-    'image': 'assets/images/lokasi/7.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/7.jpg',
     'lat': 2.478058,
     'long': 96.380851
   },
@@ -64,7 +66,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Warung Kafe',
     'nama': 'Warkop ATC NEO BITS',
     'alamat': 'Desa Ameria Bahagia',
-    'image': 'assets/images/lokasi/8.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/8.jpg',
     'lat': 2.463842,
     'long': 96.380446
   },
@@ -72,7 +74,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Warung Kafe',
     'nama': 'Waroenk Hasian',
     'alamat': 'Desa Suka Jaya',
-    'image': 'assets/images/lokasi/9.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/9.jpg',
     'lat': 2.467218,
     'long': 96.380557
   },
@@ -81,7 +83,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Terminal',
     'nama': 'Terminal bus sinabang',
     'alamat': 'Desa Suka Jaya',
-    'image': 'assets/images/lokasi/10.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/10.jpg',
     'lat': 2.468078,
     'long': 96.382339
   },
@@ -90,7 +92,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Bandara',
     'nama': 'Bandar Udara Lasikin (LKI)',
     'alamat': 'Desa Lasikin',
-    'image': 'assets/images/lokasi/11.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/11.jpg',
     'lat': 2.409215,
     'long': 96.329113
   },
@@ -99,7 +101,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Faskes',
     'nama': 'RSUD Kab. Simeulue',
     'alamat': 'Desa Ameria Bahagia',
-    'image': 'assets/images/lokasi/12.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/12.jpg',
     'lat': 2.465220,
     'long': 96.376887
   },
@@ -107,7 +109,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Faskes',
     'nama': 'Puskesmas Simeulue Timur',
     'alamat': 'Desa Suka Karya',
-    'image': 'assets/images/lokasi/13.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/13.jpg',
     'lat': 2.479818,
     'long': 96.378101
   },
@@ -116,7 +118,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'SPBU',
     'nama': 'SPBU 14.236.491',
     'alamat': 'Desa Suka Jaya',
-    'image': 'assets/images/lokasi/14.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/14.jpg',
     'lat': 2.468570,
     'long': 96.382149
   },
@@ -125,7 +127,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Kantor Polisi',
     'nama': 'Kantor Polisi',
     'alamat': 'Desa Suak Buluh',
-    'image': 'assets/images/lokasi/15.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/15.jpg',
     'lat': 2.432374,
     'long': 96.368566
   },
@@ -134,7 +136,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Rumah Makan',
     'nama': 'Rumah Makan Ikan Bakar Bang_ajo',
     'alamat': 'Desa Ameria Bahagia',
-    'image': 'assets/images/lokasi/16.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/16.jpg',
     'lat': 2.465818,
     'long': 96.380146
   },
@@ -142,7 +144,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Rumah Makan',
     'nama': 'QUALITY FRIED CHICKEN',
     'alamat': 'Desa Suka Jaya',
-    'image': 'assets/images/lokasi/17.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/17.jpg',
     'lat': 2.478212,
     'long': 96.381311
   },
@@ -151,7 +153,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Tempat Wisata',
     'nama': 'Pantai Busung',
     'alamat': 'Desa Busung Indah',
-    'image': 'assets/images/lokasi/18.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/18.jpg',
     'lat': 2.387626,
     'long': 96.336079
   },
@@ -160,7 +162,7 @@ List<Map<String, dynamic>> dataLokasi = [
     'jenis': 'Pelabuhan',
     'nama': 'Pelabuhan Penyebrangan Simeulue',
     'alamat': 'Desa Kota Batu',
-    'image': 'assets/images/lokasi/19.jpg',
+    'image': '$ApiUrl/assets/images/lokasi/19.jpg',
     'lat': 2.455952,
     'long': 96.403406
   },

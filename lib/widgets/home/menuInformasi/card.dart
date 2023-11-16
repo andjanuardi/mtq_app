@@ -49,12 +49,14 @@ class CardInformasi extends StatelessWidget {
                       children: [
                         Icon(_icon, color: Colors.white),
                         const SizedBox(width: 10),
-                        Text(
-                          _text,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold),
+                        Flexible(
+                          child: Text(
+                            _text,
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ],
                     ),

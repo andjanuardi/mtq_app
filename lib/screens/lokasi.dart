@@ -5,7 +5,11 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mtq_app/widgets/lokasi/peta/widget.dart';
 
 class Lokasi extends StatelessWidget {
-  const Lokasi({super.key, required title}) : _title = title;
+  const Lokasi({super.key, required title, required id})
+      : _title = title,
+        _id = id;
+
+  final int _id;
   final String _title;
 
   @override
@@ -56,6 +60,7 @@ class Lokasi extends StatelessWidget {
       ).animate().fade().slide(),
       Expanded(
           child: PetaLokasi(
+        id: _id,
         title: _title,
       ))
     ]);

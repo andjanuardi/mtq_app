@@ -6,9 +6,9 @@ List<Map> bottomNavIcons = [
   {
     'icon': Icons.qr_code_scanner_sharp,
     'color': Colors.white,
-    'route': '/home'
+    'route': '/qrscan'
   },
-  {'icon': Icons.live_tv_sharp, 'color': Colors.white, 'route': '/home'},
+  {'icon': Icons.live_tv_sharp, 'color': Colors.white, 'route': '/live'},
   {'icon': Icons.image, 'color': Colors.white, 'route': '/galeri'},
 ];
 

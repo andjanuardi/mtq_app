@@ -1,10 +1,12 @@
+import 'package:mtq_app/config/value.dart';
+
 List<Map<String, dynamic>> dataArena = [
   {
     'arena': 'Arena Utama',
     'lokasi': 'Lapangan Pendopo',
     'alamat': 'Desa Air Dingin',
     'cabang': 'Tilawah Remaja dan Dewasa',
-    'image': 'assets/images/arena/1.jpeg',
+    'image': '$ApiUrl/assets/images/arena/1.jpeg',
     'lat': 2.461424,
     'long': 96.378271
   },
@@ -13,7 +15,7 @@ List<Map<String, dynamic>> dataArena = [
     'lokasi': 'Mesjid Baiturrahman',
     'alamat': 'Desa Sinabang',
     'cabang': 'Tilawah Anak-Anak, Tuna Netra dan Tartil',
-    'image': 'assets/images/arena/2.jpeg',
+    'image': '$ApiUrl/assets/images/arena/2.jpeg',
     'lat': 2.479370,
     'long': 96.380345
   },
@@ -22,7 +24,7 @@ List<Map<String, dynamic>> dataArena = [
     'lokasi': 'Mesjid Agung Khalilullah',
     'alamat': 'Desa Air Dingin',
     'cabang': 'Qira\'at Saba\'ah Murattal dan Qira\'at Saba\'ah Mujawwad',
-    'image': 'assets/images/arena/3.jpeg',
+    'image': '$ApiUrl/assets/images/arena/3.jpeg',
     'lat': 2.458024,
     'long': 96.377177
   },
@@ -31,7 +33,7 @@ List<Map<String, dynamic>> dataArena = [
     'lokasi': 'Mesjid Baiturrahman',
     'alamat': 'Desa Abail',
     'cabang': 'Tahfiz 1 Juz dan Tilawah, Tahfiz 5 Juz dan tilawah',
-    'image': 'assets/images/arena/4.jpeg',
+    'image': '$ApiUrl/assets/images/arena/4.jpeg',
     'lat': 2.414255,
     'long': 96.347042
   },
@@ -40,7 +42,7 @@ List<Map<String, dynamic>> dataArena = [
     'lokasi': 'Mesjid Istiqamah',
     'alamat': 'Desa Suka Karya',
     'cabang': 'Tahfiz 10 Juz, 20 Juz dan 30 Juz',
-    'image': 'assets/images/arena/5.jpeg',
+    'image': '$ApiUrl/assets/images/arena/5.jpeg',
     'lat': 2.478665,
     'long': 96.378072
   },
@@ -49,7 +51,7 @@ List<Map<String, dynamic>> dataArena = [
     'lokasi': 'SMK 1 Simeulue Timur',
     'alamat': 'Suak Buluh',
     'cabang': 'Syarhil',
-    'image': 'assets/images/arena/6.jpeg',
+    'image': '$ApiUrl/assets/images/arena/6.jpeg',
     'lat': 2.437748,
     'long': 96.373298
   },
@@ -58,7 +60,7 @@ List<Map<String, dynamic>> dataArena = [
     'lokasi': 'Gedung BPBD KAB Simeulue',
     'alamat': 'Suak Buluh',
     'cabang': 'Fahmil',
-    'image': 'assets/images/arena/7.jpeg',
+    'image': '$ApiUrl/assets/images/arena/7.jpeg',
     'lat': 2.433904,
     'long': 96.370063
   },
@@ -67,7 +69,7 @@ List<Map<String, dynamic>> dataArena = [
     'lokasi': 'SMK 2 SIMTIM',
     'alamat': 'Suak Buluh',
     'cabang': 'Tafsir Bahasa Indonesia, Bahasa Arab dan Bahasa Inggris',
-    'image': 'assets/images/arena/8.jpeg',
+    'image': '$ApiUrl/assets/images/arena/8.jpeg',
     'lat': 2.434616,
     'long': 96.373103
   },
@@ -76,7 +78,7 @@ List<Map<String, dynamic>> dataArena = [
     'lokasi': 'SMAN 1 SIMTIM',
     'alamat': 'Desa Suka Karya',
     'cabang': 'KTIQ',
-    'image': 'assets/images/arena/9.jpeg',
+    'image': '$ApiUrl/assets/images/arena/9.jpeg',
     'lat': 2.481711,
     'long': 96.374416
   },
@@ -85,7 +87,7 @@ List<Map<String, dynamic>> dataArena = [
     'lokasi': 'Gedung DISPERINDAKOP',
     'alamat': 'Desa Linggi',
     'cabang': 'Khattil Qur\'an Naskah, Hiasan Mushaf, Dekorasi dan Kontemporer',
-    'image': 'assets/images/arena/10.jpeg',
+    'image': '$ApiUrl/assets/images/arena/10.jpeg',
     'lat': 2.468137,
     'long': 96.383330
   },

@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 class BtnMenuLokasi extends StatelessWidget {
   const BtnMenuLokasi({
     super.key,
+    required int id,
     required String icon,
     required String text,
     required String url,
   })  : _icon = icon,
+        _id = id,
         _text = text,
         _url = url;
 
+  final int _id;
   final String _icon;
   final String _text;
   final String _url;
@@ -36,7 +39,9 @@ class BtnMenuLokasi extends StatelessWidget {
                     padding: const EdgeInsets.all(15),
                     height: 75,
                     width: double.infinity,
-                    child: Image.asset('assets/images/icons/$_icon'),
+                    child:
+                        // ImageLoader(url:'${ApiUrl}/assets/images/icons/$_icon'),
+                        Image.asset('assets/images/icons/$_icon'),
                   ),
                 ],
               ),

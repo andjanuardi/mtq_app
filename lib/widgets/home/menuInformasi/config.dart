@@ -8,16 +8,16 @@ List<Map<String, dynamic>> ListMenuInformasi = [
     'url': '/profilPeserta'
   },
   {
-    'label': 'Jadwal',
+    'label': 'Agenda / Jadwal',
     'icon': Icons.calendar_month,
     'imageUrl': 'assets/images/card/jadwal.jpg',
-    'url': '/nomorPenting'
+    'url': '/jadwal'
   },
   {
     'label': 'Hasil Lomba',
-    'icon': Icons.report,
+    'icon': Icons.star,
     'imageUrl': 'assets/images/card/hasil.jpg',
-    'url': '/nomorPenting'
+    'url': '/hasilLomba'
   },
   {
     'label': 'Nomor Penting',

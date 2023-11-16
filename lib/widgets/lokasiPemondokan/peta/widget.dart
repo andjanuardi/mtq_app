@@ -4,6 +4,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:mtq_app/config/value.dart';
+import 'package:mtq_app/widgets/home/imageLoader.dart';
 import 'package:mtq_app/widgets/lokasiPemondokan/peta/infoMarker.dart';
 
 class PetaLokasiPemondokan extends StatefulWidget {
@@ -117,8 +118,10 @@ class _PetaLokasiPemondokanState extends State<PetaLokasiPemondokan> {
                                           ),
                                           height: 35,
                                           width: 35,
-                                          child: Image.asset(
-                                            'assets/images/logo/kabupaten/${e['logo']}',
+                                          child: ImageLoader(
+                                            fit: BoxFit.contain,
+                                            url:
+                                                '$ApiUrl/assets/images/logo/kabupaten/${e['logo']}',
                                           ),
                                         ),
                                       ),
@@ -144,20 +147,21 @@ class _PetaLokasiPemondokanState extends State<PetaLokasiPemondokan> {
             child: DropdownButton(
               value: selectedKab,
               items: [
-                DropdownMenuItem(
+                const DropdownMenuItem(
                     value: 0,
                     child: Row(
                       children: [
                         SizedBox(
                           width: 30,
                           height: 30,
-                          child: Image.asset(
-                              'assets/images/logo/kabupaten/logo.png'),
+                          child: ImageLoader(
+                              url:
+                                  '$ApiUrl/assets/images/logo/kabupaten/logo.png'),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
-                        const Text('Semua Kabupaten'),
+                        Text('Semua Kabupaten'),
                       ],
                     )),
                 ...listKabupaten
@@ -170,8 +174,9 @@ class _PetaLokasiPemondokanState extends State<PetaLokasiPemondokan> {
                             SizedBox(
                               width: 30,
                               height: 30,
-                              child: Image.asset(
-                                  'assets/images/logo/kabupaten/${e.value['logo']}'),
+                              child: ImageLoader(
+                                  url:
+                                      '$ApiUrl/assets/images/logo/kabupaten/${e.value['logo']}'),
                             ),
                             const SizedBox(
                               width: 10,

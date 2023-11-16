@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mtq_app/config/value.dart';
 
@@ -41,12 +42,13 @@ class InfoMarkerArena extends StatelessWidget {
             ),
             Container(
                 width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      '${_data['arena']}',
+                      '${_data['nama']}',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -57,16 +59,16 @@ class InfoMarkerArena extends StatelessWidget {
                     ),
                     Text(
                       '${_data['lokasi']}',
-                      style:
-                          const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(
                       height: 3,
                     ),
                     Text(
                       '${_data['alamat']}',
-                      style:
-                          const TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                      style: const TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.w300),
                     ),
                     const SizedBox(
                       height: 3,
@@ -74,8 +76,8 @@ class InfoMarkerArena extends StatelessWidget {
                     Text(
                       textAlign: TextAlign.center,
                       '${_data['cabang']}',
-                      style:
-                          const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                   ],
                 )),
@@ -106,7 +108,8 @@ class InfoMarkerArena extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      openDirection(_data['lat'], _data['long']);
+                      openDirection(double.parse(_data['lat']),
+                          double.parse(_data['long']));
                     },
                     child: Row(
                       children: [
@@ -146,16 +149,19 @@ class InfoMarkerArena extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 child: Container(
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withAlpha(100), blurRadius: 5)
-                      ],
-                      borderRadius: const BorderRadius.all(Radius.circular(10)),
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: Image.asset('${_data['image']}').image)),
-                ),
+                    decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(color: Colors.black.withAlpha(100), blurRadius: 5)
+                  ],
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: _data['gambar'] == null
+                          ? Image.asset('assets/images/card/default.jpg').image
+                          : CachedNetworkImageProvider(
+                              '${ApiUrl}/assets/images/arena/${_data['gambar']}')),
+                )),
               ),
             ),
           ],

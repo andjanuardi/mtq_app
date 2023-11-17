@@ -92,13 +92,8 @@ class _CardArenaState extends State<CardArena> {
                     const SizedBox(),
                     ...listArena
                         .map((e) => btnCardArena(
-                            arena: e['nama'],
-                            lokasi: e['lokasi'],
-                            alamat: e['alamat'],
-                            cabang: e['cabang'],
-                            lat: double.parse(e['lat']),
-                            long: double.parse(e['long']),
-                            imageUrl: e['gambar']))
+                              data: e,
+                            ))
                         .toList(),
                     const SizedBox(),
                   ]

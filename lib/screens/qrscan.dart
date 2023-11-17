@@ -3,13 +3,52 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mtq_app/config/value.dart';
+import 'package:mtq_app/main.dart';
+import 'package:mtq_app/screens/detailarena.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
-class QRScan extends StatelessWidget {
+class QRScan extends StatefulWidget {
   const QRScan({super.key});
+
+  @override
+  State<QRScan> createState() => _QRScanState();
+}
+
+class _QRScanState extends State<QRScan> {
+  Dio dio = Dio();
+  List<Map<String, dynamic>> listArena = [];
+
+  Future<void> fetchData() async {
+    try {
+      Response response = await dio.get('$ApiUrl/lokasiarena');
+      if (response.statusCode == 200) {
+        setState(() {
+          listArena = List<Map<String, dynamic>>.from(response.data);
+        });
+      } else {
+        // Handle errors
+        print('Failed to load data');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  @override
+  void initState() {
+    fetchData(); // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,9 +96,11 @@ class QRScan extends StatelessWidget {
           ),
         ),
       ).animate().fade().slide(),
-      const Expanded(
+      Expanded(
         child: Center(
-          child: QRScannerWidget(),
+          child: QRScannerWidget(
+            data: listArena,
+          ),
           // child: Text(
           //   'Belum ada data',
           //   style: TextStyle(
@@ -79,7 +120,11 @@ class QRScan extends StatelessWidget {
 }
 
 class QRScannerWidget extends StatefulWidget {
-  const QRScannerWidget({Key? key}) : super(key: key);
+  const QRScannerWidget({super.key, required data}) : data = data;
+
+  final List data;
+  // const QRScannerWidget({Key? key, required List<Map<String, dynamic>>? data})
+  // : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _QRScannerWidgetState();
@@ -93,6 +138,8 @@ class _QRScannerWidgetState extends State<QRScannerWidget> {
 
   // In order to get hot reload to work we need to pause the camera if the platform
   // is android, or resume the camera if the platform is iOS.
+  // Dio dio = Dio();
+
   @override
   void reassemble() {
     super.reassemble();
@@ -104,12 +151,6 @@ class _QRScannerWidgetState extends State<QRScannerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (result != null) {
-      //openLink(result!.code.toString());
-    }
-    // Text(
-    //     'Tipe Barcode: ${describeEnum(result!.format)}   Data: ${result!.code}')
-    else {}
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -165,14 +206,18 @@ class _QRScannerWidgetState extends State<QRScannerWidget> {
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 50),
-            height: 100,
-            alignment: Alignment.center,
-            width: double.infinity,
-            child: Text(
-              result == null ? '' : result!.code.toString(),
-              style: TextStyle(color: Colors.white),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 50),
+              height: 100,
+              alignment: Alignment.center,
+              width: double.infinity,
+              child: Text(
+                'Silahkan scan QR Code yang ada di arena perlombaan',
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
             ),
           )
         ],
@@ -210,6 +255,19 @@ class _QRScannerWidgetState extends State<QRScannerWidget> {
       setState(() {
         result = scanData;
       });
+
+      if (result != null) {
+        List<String> qrdata = scanData!.code.toString().split(':');
+        if (qrdata[0] == "MTQACEHXXXVI2023SIMEULUE" && widget.data.length > 0) {
+          controller.pauseCamera();
+          openPageDetail(context, widget.data, qrdata[1]);
+        }
+
+        //openLink(result!.code.toString());
+      }
+      // Text(
+      //     'Tipe Barcode: ${describeEnum(result!.format)}   Data: ${result!.code}')
+      else {}
     });
   }
 

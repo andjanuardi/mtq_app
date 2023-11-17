@@ -22,9 +22,12 @@ class _SplashScreenState extends State<SplashScreen> {
     try {
       Response response = await dio.get('$ApiUrl/config');
       if (response.statusCode == 200) {
-        setState(() {
-          isLoading = false;
-        });
+        if (mounted) {
+          setState(() {
+            isLoading = false;
+          });
+        }
+
         // setState(() {
         banner = int.parse(response.data['banner']);
         bayar = int.parse(response.data['bayar']);
@@ -41,12 +44,19 @@ class _SplashScreenState extends State<SplashScreen> {
         }
 
         if (banner == 1) {
-          Future.delayed(4.seconds).then((value) => showPopup(context));
-          Future.delayed(8.seconds).then(
-              (value) => Navigator.pushReplacementNamed(context, '/home'));
+          if (mounted) {
+            Future.delayed(4.seconds).then((value) => showPopup(context));
+            Future.delayed(8.seconds)
+                .then((value) => Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/home',
+                      (route) => false,
+                    ));
+          }
         } else {
-          Future.delayed(4.seconds).then(
-              (value) => Navigator.pushReplacementNamed(context, '/home'));
+          Future.delayed(4.seconds).then((value) =>
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/home', (route) => false));
         }
 
         // if (bayar) belumBayar(context);
@@ -66,7 +76,9 @@ class _SplashScreenState extends State<SplashScreen> {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
+
     fetchData();
+
     super.initState();
   }
 
@@ -77,6 +89,7 @@ class _SplashScreenState extends State<SplashScreen> {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
+
     super.dispose();
   }
 

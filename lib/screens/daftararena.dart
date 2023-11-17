@@ -99,13 +99,7 @@ class _DaftarArenaState extends State<DaftarArena> {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           itemCount: listArena.length,
           itemBuilder: (context, index) => btnCardArena(
-            arena: listArena[index]['nama'],
-            lokasi: listArena[index]['lokasi'],
-            alamat: listArena[index]['alamat'],
-            cabang: listArena[index]['cabang'],
-            imageUrl: listArena[index]['gambar'],
-            lat: double.parse(listArena[index]['lat']),
-            long: double.parse(listArena[index]['long']),
+            data: listArena[index],
           ),
           separatorBuilder: (context, index) => const SizedBox(
             height: 20,

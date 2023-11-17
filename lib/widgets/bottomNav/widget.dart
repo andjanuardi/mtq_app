@@ -30,10 +30,7 @@ class BottomNav extends StatelessWidget {
       items: bottomNavIcons
           .map(
             (e) => InkWell(
-              child: Icon(
-                e['icon'],
-                color: e['color'],
-              ),
+              child: e['icon'],
             ),
           )
           .toList(),

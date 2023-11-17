@@ -187,18 +187,7 @@ class _LiveState extends State<Live> {
             clipBehavior: Clip.hardEdge,
             child: InkWell(
               onTap: () {
-                setState(() {
-                  _youtubePlayerController = YoutubePlayerController(
-                      initialVideoId: '',
-                      flags: const YoutubePlayerFlags(
-                          isLive: true, autoPlay: true));
-                });
-                setState(() {
-                  _youtubePlayerController = YoutubePlayerController(
-                      initialVideoId: listLive[index]['link'],
-                      flags: const YoutubePlayerFlags(
-                          isLive: true, autoPlay: true));
-                });
+                openYoutube(listLive[index]['link']);
               },
               child: Container(
                 alignment: Alignment.bottomCenter,

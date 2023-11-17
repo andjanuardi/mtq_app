@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/screens/galeri.dart';
 import 'package:mtq_app/screens/hasillomba.dart';
+import 'package:mtq_app/screens/kiblat.dart';
 import 'package:mtq_app/screens/live.dart';
 import 'package:mtq_app/screens/nomorPenting.dart';
 import 'package:mtq_app/screens/qrscan.dart';
@@ -53,6 +54,8 @@ class MainApp extends StatelessWidget {
                 const LayoutApp(child: SafeArea(child: DaftarArena())),
             '/jadwal': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: Jadwal())),
+            '/kiblat': (BuildContext context) =>
+                const LayoutApp(child: SafeArea(child: Kiblat())),
             '/hasilLomba': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: HasilLomba())),
             '/galeri': (BuildContext context) =>

@@ -1,32 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mtq_app/config/value.dart';
+import 'package:mtq_app/main.dart';
+import 'package:mtq_app/screens/detailarena.dart';
 import 'package:mtq_app/widgets/home/imageLoader.dart';
 
 class btnCardArena extends StatelessWidget {
-  const btnCardArena({
-    super.key,
-    required String arena,
-    required String lokasi,
-    required String alamat,
-    required String cabang,
-    required double lat,
-    required double long,
-    required String imageUrl,
-  })  : _arena = arena,
-        _lokasi = lokasi,
-        _alamat = alamat,
-        _cabang = cabang,
-        _lat = lat,
-        _long = long,
-        _imageUrl = imageUrl;
+  const btnCardArena({super.key, required data}) : data = data;
 
-  final String _arena;
-  final String _lokasi;
-  final String _alamat;
-  final String _cabang;
-  final double _lat;
-  final double _long;
-  final String _imageUrl;
+  final Map data;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +21,15 @@ class btnCardArena extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: InkWell(
             onTap: () {
-              openDirection(_lat, _long);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LayoutApp(
+                        child: SafeArea(
+                            child: DetailArena(
+                      data: data,
+                    ))),
+                  ));
             },
             highlightColor: Colors.white,
             child: SizedBox(
@@ -66,18 +55,18 @@ class btnCardArena extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                _arena,
+                                data['nama'],
                                 style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w900,
                                     color: Theme.of(context).primaryColor),
                               ),
-                              Text(_lokasi,
+                              Text(data['lokasi'],
                                   style: const TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black54)),
-                              Text(_alamat,
+                              Text(data['alamat'],
                                   style: const TextStyle(
                                       fontSize: 11,
                                       fontWeight: FontWeight.w500,
@@ -88,7 +77,8 @@ class btnCardArena extends StatelessWidget {
                               Material(
                                 child: InkWell(
                                   onTap: () {
-                                    openDirection(_lat, _long);
+                                    openDirection(double.parse(data['lat']),
+                                        double.parse(data['long']));
                                   },
                                   child: Ink(
                                     decoration: BoxDecoration(
@@ -132,7 +122,8 @@ class btnCardArena extends StatelessWidget {
                             clipBehavior: Clip.hardEdge,
                             decoration: const BoxDecoration(),
                             child: ImageLoader(
-                              url: '${ApiUrl}/assets/images/arena/${_imageUrl}',
+                              url:
+                                  '${ApiUrl}/assets/images/arena/${data['gambar']}',
                               height: double.infinity,
                               fit: BoxFit.cover,
                             ),
@@ -146,7 +137,7 @@ class btnCardArena extends StatelessWidget {
                           horizontal: 15, vertical: 10),
                       width: double.infinity,
                       color: Theme.of(context).primaryColor.withAlpha(200),
-                      child: Text(_cabang,
+                      child: Text(data['cabang'],
                           style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,

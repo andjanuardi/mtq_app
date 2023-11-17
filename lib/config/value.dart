@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:mtq_app/main.dart';
+import 'package:mtq_app/screens/detailarena.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const double TabletWidth = 480;
@@ -110,6 +112,18 @@ List<Map<String, dynamic>> groupBy(
   return returnData;
 }
 
+Future<void> openPageDetail(
+    BuildContext context, List<dynamic> data, String id) async {
+  Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SafeArea(
+            child: LayoutApp(
+                child: DetailArena(
+                    data: data.where((e) => e['id'] == id).toList()[0]))),
+      ));
+}
+
 Future<void> showPopup(BuildContext context) {
   return showDialog<void>(
     context: context,
@@ -123,20 +137,21 @@ Future<void> showPopup(BuildContext context) {
           image: CachedNetworkImageProvider(
               '${ApiUrl}/assets/images/ads/gogreen.jpg'),
         ),
-        actionsPadding: EdgeInsets.all(2),
-        actions: [
-          Center(
-            child: TextButton(
-              style: TextButton.styleFrom(
-                textStyle: Theme.of(context).textTheme.labelLarge,
-              ),
-              child: const Text('Lanjukan'),
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, '/home');
-              },
-            ),
-          ),
-        ],
+        // actionsPadding: EdgeInsets.all(2),
+        // actions: [
+        //   Center(
+        //     child: TextButton(
+        //       style: TextButton.styleFrom(
+        //         textStyle: Theme.of(context).textTheme.labelLarge,
+        //       ),
+        //       child: const Text('Lanjukan'),
+        //       onPressed: () {
+        //         Navigator.pushReplacementNamed(
+        //             context, '/home', (route) => false);
+        //       },
+        //     ),
+        //   ),
+        // ],
       );
       // actions: <Widget>[
       //   TextButton(

@@ -65,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
         tidakadakoneksi(context);
       }
     } catch (e) {
-      showmodal(context, e.toString());
+      tidakadakoneksi(context);
     }
   }
 

@@ -6,6 +6,7 @@ import 'package:mtq_app/screens/hasillomba.dart';
 import 'package:mtq_app/screens/kiblat.dart';
 import 'package:mtq_app/screens/live.dart';
 import 'package:mtq_app/screens/nomorPenting.dart';
+import 'package:mtq_app/screens/profilkabupaten.dart';
 import 'package:mtq_app/screens/qrscan.dart';
 import 'package:mtq_app/screens/splash.dart';
 import 'package:mtq_app/screens/daftararena.dart';
@@ -54,102 +55,104 @@ class MainApp extends StatelessWidget {
                 const LayoutApp(child: SafeArea(child: DaftarArena())),
             '/jadwal': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: Jadwal())),
-            '/kiblat': (BuildContext context) =>
-                const LayoutApp(child: SafeArea(child: Kiblat())),
+            '/kiblat': (BuildContext context) => const LayoutApp(
+                showNavBar: false, child: SafeArea(child: Kiblat())),
             '/hasilLomba': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: HasilLomba())),
-            '/galeri': (BuildContext context) =>
-                const LayoutApp(child: SafeArea(child: Galeri())),
+            '/galeri': (BuildContext context) => const LayoutApp(
+                showNavBar: false, child: SafeArea(child: Galeri())),
             '/live': (BuildContext context) => const LayoutApp(
                 showNavBar: false, child: SafeArea(child: Live())),
             '/qrscan': (BuildContext context) => const LayoutApp(
                 showNavBar: false, child: SafeArea(child: QRScan())),
-            '/lokasiPemondokan': (BuildContext context) =>
-                const LayoutApp(child: SafeArea(child: LokasiPemondokan())),
+            '/lokasiPemondokan': (BuildContext context) => const LayoutApp(
+                showNavBar: false, child: SafeArea(child: LokasiPemondokan())),
             '/lokasiArena': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: LokasiArena())),
             '/profilPeserta': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: ProfilPeserta())),
             '/nomorPenting': (BuildContext context) =>
                 const LayoutApp(child: SafeArea(child: NomorPenting())),
-            '/lokasiMasjid': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Masjid',
-                  id: 3,
-                ))),
-            '/lokasiFaskes': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Faskes',
-                  id: 4,
-                ))),
-            '/lokasiKantorBupati': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Kantor Bupati ',
-                  id: 5,
-                ))),
-            '/lokasiSPBU': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'SPBU',
-                  id: 6,
-                ))),
-            '/lokasiATM': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'ATM',
-                  id: 7,
-                ))),
-            '/lokasiKantorPolisi': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Kantor Polisi',
-                  id: 8,
-                ))),
-            '/lokasiPenginapan': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Penginapan',
-                  id: 9,
-                ))),
-            '/lokasiRumahMakan': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Rumah Makan',
-                  id: 10,
-                ))),
-            '/lokasiWarungKafe': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Warung Kafe',
-                  id: 11,
-                ))),
-            '/lokasiTempatWisata': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Tempat Wisata',
-                  id: 12,
-                ))),
-            '/lokasiTerminal': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Terminal',
-                  id: 13,
-                ))),
-            '/lokasiPelabuhan': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Pelabuhan',
-                  id: 14,
-                ))),
-            '/lokasiBandara': (BuildContext context) => const LayoutApp(
-                    child: SafeArea(
-                        child: Lokasi(
-                  title: 'Bandara',
-                  id: 15,
-                ))),
+            '/profilKabupaten': (BuildContext context) =>
+                const LayoutApp(child: SafeArea(child: ProfilKabupaten())),
+            // '/lokasiMasjid': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Masjid',
+            //       id: 3,
+            //     ))),
+            // '/lokasiFaskes': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Faskes',
+            //       id: 4,
+            //     ))),
+            // '/lokasiKantorBupati': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Kantor Pemda ',
+            //       id: 5,
+            //     ))),
+            // '/lokasiSPBU': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'SPBU',
+            //       id: 6,
+            //     ))),
+            // '/lokasiATM': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'ATM',
+            //       id: 7,
+            //     ))),
+            // '/lokasiKantorPolisi': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Kantor Polisi / TNI',
+            //       id: 8,
+            //     ))),
+            // '/lokasiPenginapan': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Penginapan',
+            //       id: 9,
+            //     ))),
+            // '/lokasiRumahMakan': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Rumah Makan',
+            //       id: 10,
+            //     ))),
+            // '/lokasiWarungKafe': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Warung Kafe',
+            //       id: 11,
+            //     ))),
+            // '/lokasiTempatWisata': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Tempat Wisata',
+            //       id: 12,
+            //     ))),
+            // '/lokasiTerminal': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Terminal',
+            //       id: 13,
+            //     ))),
+            // '/lokasiPelabuhan': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Pelabuhan',
+            //       id: 14,
+            //     ))),
+            // '/lokasiBandara': (BuildContext context) => const LayoutApp(
+            //         child: SafeArea(
+            //             child: Lokasi(
+            //       title: 'Bandara',
+            //       id: 15,
+            //     ))),
           },
           home: const SplashScreen()),
       // home: LayoutApp(child: Home())),

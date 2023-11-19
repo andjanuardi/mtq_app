@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mtq_app/config/value.dart';
+import 'package:mtq_app/main.dart';
+import 'package:mtq_app/screens/detailarena.dart';
 
 class InfoMarkerArena extends StatelessWidget {
   const InfoMarkerArena({super.key, required data}) : _data = data;
@@ -86,7 +88,13 @@ class InfoMarkerArena extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  LayoutApp(child: DetailArena(data: _data))));
+                    },
                     child: Row(
                       children: [
                         Icon(

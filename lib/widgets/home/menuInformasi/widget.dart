@@ -27,8 +27,8 @@ class MenuInformasi extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Wrap(
-                spacing: 10,
-                runSpacing: 15,
+                spacing: 5,
+                runSpacing: 10,
                 alignment: WrapAlignment.spaceAround,
                 children: ListMenuInformasi.map((e) => CardInformasi(
                         text: e['label'],

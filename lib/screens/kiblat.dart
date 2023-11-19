@@ -44,7 +44,6 @@ class _KiblatState extends State<Kiblat> {
   @override
   void initState() {
     super.initState();
-    getKiblat();
     _fetchPermissionStatus();
   }
 
@@ -56,6 +55,9 @@ class _KiblatState extends State<Kiblat> {
 
   @override
   Widget build(BuildContext context) {
+    if (mounted && _hasPermissions) {
+      getKiblat();
+    }
     return Builder(builder: (context) {
       if (_hasPermissions) {
         return Column(

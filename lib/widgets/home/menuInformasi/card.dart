@@ -31,7 +31,7 @@ class CardInformasi extends StatelessWidget {
           },
           child: Ink(
               height: 100,
-              width: 160,
+              width: 150,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,

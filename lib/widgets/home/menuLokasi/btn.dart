@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mtq_app/main.dart';
+import 'package:mtq_app/screens/lokasi.dart';
 
 class BtnMenuLokasi extends StatelessWidget {
   const BtnMenuLokasi({
@@ -31,7 +33,20 @@ class BtnMenuLokasi extends StatelessWidget {
               splashColor: Colors.white.withAlpha(100),
               highlightColor: Colors.white.withAlpha(100),
               onTap: () {
-                Navigator.pushNamed(context, _url);
+                if (_id > 3) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LayoutApp(
+                            child: SafeArea(
+                                child: Lokasi(
+                          title: _text,
+                          id: _id,
+                        ))),
+                      ));
+                } else {
+                  Navigator.pushNamed(context, _url);
+                }
               },
               child: Column(
                 children: [

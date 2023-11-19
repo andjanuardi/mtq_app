@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:mtq_app/config/value.dart';
 import 'package:mtq_app/widgets/bottomNav/config.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +11,8 @@ class BottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isWeb = MediaQuery.of(context).size.width > WebWidth;
+
     int activeBottomNav =
         Provider.of<BottomNavProvider>(context).activeBottomNav;
     return CurvedNavigationBar(
@@ -34,7 +37,7 @@ class BottomNav extends StatelessWidget {
             ),
           )
           .toList(),
-      height: 55,
+      height: isWeb ? 45 : 55,
       index: activeBottomNav,
       color: Theme.of(context).primaryColor,
       backgroundColor: Colors.transparent,

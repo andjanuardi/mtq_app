@@ -35,6 +35,7 @@ class MainApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => BottomNavProvider()),
       ],
       child: MaterialApp(
+          title: 'MTQ ACEH XXXVI 2023 Kab. Simeulue',
 
           // onGenerateRoute: (settings) {
           //   if (settings.name == '/home')
@@ -168,6 +169,7 @@ class LayoutApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isTablet = MediaQuery.of(context).size.width > TabletWidth;
+    bool isWeb = MediaQuery.of(context).size.width > WebWidth;
 
     return Scaffold(
       body: Container(
@@ -184,14 +186,15 @@ class LayoutApp extends StatelessWidget {
                 ).image)),
         child: Column(
           children: [
-            //Content
             Expanded(
               child: Container(
+                width: double.infinity,
                 child: child,
               ),
             ),
             //Bottom Navigation
-            Visibility(visible: showNavBar, child: const BottomNav())
+            Visibility(
+                visible: isWeb ? false : showNavBar, child: const BottomNav())
           ],
         ),
       ),

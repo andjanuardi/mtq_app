@@ -6,6 +6,7 @@ import 'package:mtq_app/screens/detailarena.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const double TabletWidth = 480;
+const double WebWidth = 1080;
 
 void openYoutube(String id) async {
   final Uri url = Uri(

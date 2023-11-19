@@ -7,35 +7,40 @@ List<Map> bottomNavIcons = [
       Icons.home,
       color: Colors.white,
     ),
-    'route': '/home'
+    'route': '/home',
+    'label': 'Beranda',
   },
   {
     'icon': const FaIcon(
       FontAwesomeIcons.compass,
       color: Colors.white,
     ),
-    'route': '/kiblat'
+    'route': '/kiblat',
+    'label': 'Arah Kiblat',
   },
   {
     'icon': Icon(
       Icons.qr_code_scanner_sharp,
       color: Colors.white,
     ),
-    'route': '/qrscan'
+    'route': '/qrscan',
+    'label': 'QR Scanner',
   },
   {
     'icon': Icon(
       Icons.live_tv_sharp,
       color: Colors.white,
     ),
-    'route': '/live'
+    'route': '/live',
+    'label': 'Live Streaming',
   },
   {
     'icon': Icon(
       Icons.image,
       color: Colors.white,
     ),
-    'route': '/galeri'
+    'route': '/galeri',
+    'label': 'Galeri',
   },
 ];
 
